@@ -9,21 +9,21 @@ const DATABASE_ID = "30c08ef5e23880e0974ed0ec2990bfbb";
 
 export async function GET() {
   try {
-    const response = await notion.dataSources.query({
-      data_source_id: DATABASE_ID,
-      filter: {
-        property: "Published",
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: "Date",
-          direction: "descending",
-        },
-      ],
-    });
+    const response = await notion.databases.query({
+  database_id: DATABASE_ID,
+  filter: {
+    property: "Published",
+    checkbox: {
+      equals: true,
+    },
+  },
+  sorts: [
+    {
+      property: "Date",
+      direction: "descending",
+    },
+  ],
+});
 
     const posts = response.results.map((page: any) => {
       const props = page.properties;
