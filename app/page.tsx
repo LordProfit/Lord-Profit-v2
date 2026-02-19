@@ -389,10 +389,10 @@ export default function Home() {
       {/* ── FOOTER ── */}
       <footer className="px-8 md:px-12 py-8 border-t border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <span className="font-mono text-[11px] text-zinc-600">
-          © 2025 Art Castillo. All rights reserved.
+          © 2026 Art Castillo. All rights reserved.
         </span>
         <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-600">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#c8f542] animate-pulse" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#c8f542] animate-pulse" />
           Available for freelance
         </div>
       </footer>
