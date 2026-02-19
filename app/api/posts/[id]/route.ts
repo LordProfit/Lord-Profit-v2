@@ -7,11 +7,12 @@ const notion = new Client({
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const blocks = await notion.blocks.children.list({
-      block_id: params.id,
+      block_id: id,
     });
 
     const content = blocks.results.map((block: any) => {
