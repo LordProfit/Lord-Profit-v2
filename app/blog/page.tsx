@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 type Post = {
   id: string;
   filename: string;
