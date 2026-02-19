@@ -39,8 +39,8 @@ export async function GET() {
     });
 
     return NextResponse.json({ posts });
-  } catch (err) {
-    console.error(err);
-    return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
+  } catch (err: any) {
+    console.error("Notion error:", err?.message, err?.code, err?.status);
+    return NextResponse.json({ error: err?.message ?? "Failed to fetch posts" }, { status: 500 });
   }
 }
