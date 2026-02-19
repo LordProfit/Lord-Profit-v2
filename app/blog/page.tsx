@@ -275,7 +275,7 @@ export default function HellCodex() {
               <div className="mt-12 border border-[#00f0ff]/20 bg-[#00f0ff]/5 p-6">
                 <div className="text-[10px] text-[#00f0ff] tracking-widest mb-2">// WANT THE FIRST 4 CHAPTERS?</div>
                 <p className="text-xs text-zinc-500 mb-4 leading-relaxed">Reply to castascendancy@gmail.com. No strings. Just infrastructure failure and existential dread.</p>
-                <a href="mailto:castascendancy@gmail.com?subject=First 4 Chapters Request" className="text-xs text-[#00f0ff] hover:text-white transition-colors tracking-widest">
+                <a href="mailto:castascendancy@gmail.com" className="text-xs text-[#00f0ff] hover:text-white transition-colors tracking-widest">
                   SEND REQUEST →
                 </a>
               </div>
