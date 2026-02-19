@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import ContactModal from "./components/ContactModal";
 
 const navigation = [
-  { name: "Blog", href: "https://profits-blog.vercel.app" },
+  { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
   { name: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
