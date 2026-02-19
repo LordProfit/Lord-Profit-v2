@@ -363,7 +363,7 @@ export default function Home() {
         <FadeUp delay={0.2} className="flex flex-wrap gap-px">
           {[
             { label: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
-            { label: "Blog", href: "https://profits-blog.vercel.app" },
+            { label: "Blog", href: "/blog" },
           ].map((link) => (
             <a
               key={link.label}
