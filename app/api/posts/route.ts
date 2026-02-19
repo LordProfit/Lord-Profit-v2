@@ -5,7 +5,7 @@ const notion = new Client({
   auth: process.env.NOTION_SECRET,
 });
 
-const DATABASE_ID = "30c08ef5-e238-80e0-974e-d0ec2990bfbb";
+const DATABASE_ID = "30c08ef5e23880e0974ed0ec2990bfbb";
 
 export async function GET() {
   try {
@@ -39,8 +39,8 @@ export async function GET() {
     });
 
     return NextResponse.json({ posts });
-  } catch (err: any) {
-    console.error("Notion error:", err?.message, err?.code, err?.status);
-    return NextResponse.json({ error: err?.message ?? "Failed to fetch posts" }, { status: 500 });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
   }
 }
