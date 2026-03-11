@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import ContactModal from "./components/ContactModal";
@@ -47,7 +48,14 @@ const projects = [
   },
 ];
 
-// Reusable push-up text reveal
+const designPreviews = [
+  { file: "/design/CYNOLogoMultiColor.png", label: "Cypher Nomadic", cat: "Brand Identity" },
+  { file: "/design/Desktop.png", label: "Synapse", cat: "UI Design" },
+  { file: "/design/DreamWorld.png", label: "DreamWorld", cat: "Art Direction" },
+];
+
+// ── Reusable: PushReveal ───────────────────────────────────────────────────
+
 function PushReveal({
   children,
   delay = 0,
@@ -66,11 +74,7 @@ function PushReveal({
         className={className}
         initial={{ y: "110%" }}
         animate={inView ? { y: 0 } : { y: "110%" }}
-        transition={{
-          duration: 0.9,
-          delay,
-          ease: [0.16, 1, 0.3, 1],
-        }}
+        transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
       >
         {children}
       </motion.div>
@@ -78,7 +82,8 @@ function PushReveal({
   );
 }
 
-// Fade up reveal
+// ── Reusable: FadeUp ───────────────────────────────────────────────────────
+
 function FadeUp({
   children,
   delay = 0,
@@ -104,7 +109,8 @@ function FadeUp({
   );
 }
 
-// Project card
+// ── Project Card ───────────────────────────────────────────────────────────
+
 function ProjectCard({
   project,
   index,
@@ -123,21 +129,14 @@ function ProjectCard({
       rel="noreferrer"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`group relative block p-10 bg-zinc-900/50 border border-zinc-800 transition-all duration-300 hover:bg-zinc-900 hover:border-zinc-700 ${
         !project.live ? "opacity-40 pointer-events-none" : ""
       }`}
     >
-      {/* top accent line */}
       <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out" />
 
-      <div className="font-mono text-xs text-zinc-600 mb-10">
-        {project.number}
-      </div>
+      <div className="font-mono text-xs text-zinc-600 mb-10">{project.number}</div>
 
       <div className="text-2xl font-bold text-zinc-100 tracking-tight mb-4">
         {project.name}
@@ -166,6 +165,8 @@ function ProjectCard({
   );
 }
 
+// ── Name Section ───────────────────────────────────────────────────────────
+
 function NameSection() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -175,7 +176,6 @@ function NameSection() {
 
   const y = useTransform(scrollYProgress, [0.5, 1], ["0%", "-60%"]);
   const opacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
-
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
@@ -216,8 +216,11 @@ function NameSection() {
   );
 }
 
+// ── Page ───────────────────────────────────────────────────────────────────
+
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main className="text-zinc-100 min-h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black bg-fixed">
 
@@ -294,18 +297,9 @@ export default function Home() {
       <FadeUp>
         <div className="grid grid-cols-1 md:grid-cols-3 border-y border-zinc-800">
           {[
-            {
-              label: "Expertise",
-              value: "Front-End Dev\nUI/UX Design\nBrand Identity",
-            },
-            {
-              label: "Stack",
-              value: "Next.js · TypeScript\nTailwind · Supabase\nAI Integration",
-            },
-            {
-              label: "Currently",
-              value: "Writing a novel.\nBuilding in public.\nOpen to work.",
-            },
+            { label: "Expertise", value: "Front-End Dev\nUI/UX Design\nBrand Identity" },
+            { label: "Stack", value: "Next.js · TypeScript\nTailwind · Supabase\nAI Integration" },
+            { label: "Currently", value: "Writing a novel.\nBuilding in public.\nOpen to work." },
           ].map((item, i) => (
             <div
               key={i}
@@ -336,6 +330,71 @@ export default function Home() {
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
+      </section>
+
+      {/* ── DESIGN ── */}
+      <section className="px-8 md:px-12 py-28 border-t border-zinc-800">
+        <FadeUp className="mb-16">
+          <div className="flex items-center gap-4 font-mono text-[11px] text-[#c8f542] tracking-[0.2em] uppercase">
+            Design Work
+            <span className="flex-1 max-w-[80px] h-px bg-zinc-800" />
+          </div>
+        </FadeUp>
+
+        <div className="mb-12">
+          <PushReveal delay={0}>
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none">
+              Visual
+            </h2>
+          </PushReveal>
+          <PushReveal delay={0.12}>
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none text-zinc-600">
+              Identity.
+            </h2>
+          </PushReveal>
+        </div>
+
+        <FadeUp delay={0.1} className="mb-12">
+          <p className="font-mono text-xs text-zinc-500 max-w-sm leading-relaxed">
+            Brand identity, UI design, apparel, and art direction. Every mark built with intent.
+          </p>
+        </FadeUp>
+
+        {/* Preview grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-12">
+          {designPreviews.map((item, i) => (
+            <FadeUp key={item.label} delay={i * 0.1}>
+              <a
+                href="/design"
+                className="group relative block aspect-video bg-zinc-900/50 border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-all duration-300"
+              >
+                <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out z-10" />
+                <Image
+                  src={item.file}
+                  alt={item.label}
+                  fill
+                  className="object-contain p-4 group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="font-mono text-[9px] text-[#c8f542] tracking-[0.15em] uppercase mb-0.5">
+                    {item.cat}
+                  </div>
+                  <div className="font-mono text-xs text-zinc-200">{item.label}</div>
+                </div>
+              </a>
+            </FadeUp>
+          ))}
+        </div>
+
+        <FadeUp delay={0.3}>
+          <a
+            href="/design"
+            className="inline-flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
+          >
+            <span>↗</span> View All Design Work
+          </a>
+        </FadeUp>
       </section>
 
       {/* ── CONTACT ── */}
