@@ -8,15 +8,14 @@ import ContactModal from "./components/ContactModal";
 
 const navigation = [
   { name: "Blog", href: "/blog" },
-  { name: "Projects", href: "/projects" },
+  { name: "Projects", href: "/design" },
   { name: "Contact", href: "/contact" },
-  { name: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
 ];
 
 const projects = [
   {
     number: "01",
-    name: "wRitr AI",
+    name: "Novel1st AI",
     desc: "Full novel writing studio with AI chapter generation, character builder, world builder, and writing analytics. Multi-provider — OpenAI, Claude, Gemini.",
     tags: ["Next.js", "AI", "Tiptap"],
     href: "https://novel1st.vercel.app",
@@ -24,6 +23,14 @@ const projects = [
   },
   {
     number: "02",
+    name: "Synapse",
+    desc: "Notion-alternative note-taking/second brain app with AI assistant, semantic search, drag-and-drop organization, and freemium Stripe integration. Your second brain. Minimal. Fast. Yours.",
+    tags: ["Next.js", "AI", "Postgres"],
+    href: "https://synapse-kappa-teal.vercel.app",
+    live: true,
+  },
+  {
+    number: "03",
     name: "Corex",
     desc: "Collaborative canvas built for engineering teams. Markdown editor, real-time canvas, and diagram-as-code. Optimized Eraser clone.",
     tags: ["Next.js", "Canvas", "Real-time"],
@@ -31,20 +38,12 @@ const projects = [
     live: true,
   },
   {
-    number: "03",
+    number: "04",
     name: "Gwen UI",
     desc: "Open source ChatGPT UI clone. Bring your own OpenAI API key and use this clean, fast interface. 100% unaffiliated with OpenAI.",
     tags: ["Open Source", "OpenAI", "React"],
     href: "https://custom-chatbot-wine.vercel.app",
     live: true,
-  },
-  {
-    number: "04",
-    name: "OpenClaw",
-    desc: "Personal AI thinking partner for deep brainstorming, worldbuilding, and creative direction. Persistent context across sessions.",
-    tags: ["Coming Soon"],
-    href: "#",
-    live: false,
   },
 ];
 
@@ -54,7 +53,7 @@ const designPreviews = [
   { file: "/design/DreamWorld.png", label: "DreamWorld", cat: "Art Direction" },
 ];
 
-// ── Reusable: PushReveal ───────────────────────────────────────────────────
+// ── PushReveal ─────────────────────────────────────────────────────────────
 
 function PushReveal({
   children,
@@ -82,7 +81,7 @@ function PushReveal({
   );
 }
 
-// ── Reusable: FadeUp ───────────────────────────────────────────────────────
+// ── FadeUp ─────────────────────────────────────────────────────────────────
 
 function FadeUp({
   children,
@@ -109,7 +108,7 @@ function FadeUp({
   );
 }
 
-// ── Project Card ───────────────────────────────────────────────────────────
+// ── ProjectCard ────────────────────────────────────────────────────────────
 
 function ProjectCard({
   project,
@@ -130,7 +129,7 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative block p-10 bg-zinc-900/50 border border-zinc-800 transition-all duration-300 hover:bg-zinc-900 hover:border-zinc-700 ${
+      className={`group relative block p-10 bg-zinc-900/50 border border-zinc-800 transition-all duration-300 hover:bg-zinc-900 hover:border-zinf-500 ${
         !project.live ? "opacity-40 pointer-events-none" : ""
       }`}
     >
@@ -142,7 +141,7 @@ function ProjectCard({
         {project.name}
       </div>
 
-      <p className="font-mono text-xs text-zinc-500 leading-relaxed mb-10">
+      <p className="font-mono text-xs text-zinc-200 leading-relaxed mb-10">
         {project.desc}
       </p>
 
@@ -165,7 +164,7 @@ function ProjectCard({
   );
 }
 
-// ── Name Section ───────────────────────────────────────────────────────────
+// ── NameSection ────────────────────────────────────────────────────────────
 
 function NameSection() {
   const ref = useRef(null);
@@ -203,7 +202,7 @@ function NameSection() {
             </motion.h2>
           </div>
           <motion.p
-            className="font-mono text-xs text-zinc-500 tracking-[0.15em] uppercase mt-8"
+            className="font-mono text-xs text-zinc-200 tracking-[0.15em] uppercase mt-8"
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -259,7 +258,7 @@ export default function Home() {
         </motion.nav>
 
         {/* Divider */}
-        <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-200/0 via-zinc-200/50 to-zinc-200/0" />
 
         {/* Title */}
         <motion.h1
@@ -272,7 +271,7 @@ export default function Home() {
           profit
         </motion.h1>
 
-        <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-200/0 via-zinc-200/50 to-zinc-200/0" />
 
         {/* Scroll cue */}
         <motion.div
@@ -308,7 +307,7 @@ export default function Home() {
               <div className="font-mono text-[10px] text-zinc-600 tracking-[0.2em] uppercase mb-3">
                 {item.label}
               </div>
-              <div className="text-sm text-zinc-300 leading-relaxed whitespace-pre-line">
+              <div className="text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
                 {item.value}
               </div>
             </div>
@@ -355,18 +354,17 @@ export default function Home() {
         </div>
 
         <FadeUp delay={0.1} className="mb-12">
-          <p className="font-mono text-xs text-zinc-500 max-w-sm leading-relaxed">
+          <p className="font-mono text-xs text-zinc-200 max-w-sm leading-relaxed">
             Brand identity, UI design, apparel, and art direction. Every mark built with intent.
           </p>
         </FadeUp>
 
-        {/* Preview grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-12">
           {designPreviews.map((item, i) => (
             <FadeUp key={item.label} delay={i * 0.1}>
               <a
                 href="/design"
-                className="group relative block aspect-video bg-zinc-900/50 border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-all duration-300"
+                className="group relative block aspect-video bg-zinc-900/50 border border-zinc-800 overflow-hidden hover:border-zinf-500 transition-all duration-300"
               >
                 <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out z-10" />
                 <Image
@@ -390,7 +388,7 @@ export default function Home() {
         <FadeUp delay={0.3}>
           <a
             href="/design"
-            className="inline-flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
+            className="inline-flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-200 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
           >
             <span>↗</span> View All Design Work
           </a>
@@ -421,7 +419,11 @@ export default function Home() {
 
         <FadeUp delay={0.2} className="flex flex-wrap gap-px">
           {[
-            { label: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
+            {
+              label: "Design Portfolio",
+              href: "https://cultural-impact-494790.framer.app",
+              note: "Graphic & Brand Work",
+            },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
             <a
@@ -429,14 +431,21 @@ export default function Home() {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
+              className="flex flex-col justify-center px-8 py-5 border border-zinc-800 font-mono transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
             >
-              <span>↗</span> {link.label}
+              <div className="flex items-center gap-3 text-xs text-zinc-200 tracking-[0.1em] uppercase">
+                <span>↗</span> {link.label}
+              </div>
+              {link.note && (
+                <div className="text-[10px] text-zinf-500 mt-1 tracking-wide">
+                  {link.note}
+                </div>
+              )}
             </a>
           ))}
           <button
             onClick={() => setModalOpen(true)}
-            className="flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
+            className="flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-200 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
           >
             <span>↗</span> Email
           </button>

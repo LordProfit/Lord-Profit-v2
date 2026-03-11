@@ -78,7 +78,7 @@ const items: DesignItem[] = [
   },
   {
     id: "07",
-    file: "/design/Desktop - 3.png",
+    file: "/design/Desktop.png",
     title: "Synapse",
     client: "Synapse App",
     category: "UI Design",
@@ -103,6 +103,15 @@ const items: DesignItem[] = [
     desc: "Graphic apparel design — Tokyo/samurai inspired. Built for screen print. The hardest piece in the catalog.",
     tags: ["Apparel", "Screen Print", "Tokyo"],
   },
+  {
+  id: "10",
+  file: "/design/FireALogo.png",
+  title: "Fire A",
+  client: "Personal",
+  category: "Art Direction",
+  desc: "3D rendered logo mark — geometric 'A' set on fire with real smoke simulation. Where brand identity meets cinematic art direction.",
+  tags: ["3D Render", "Brand Mark", "Art Direction"],
+},
 ];
 
 const categories = ["All", "Brand Identity", "UI Design", "Apparel", "Art Direction"] as const;
@@ -216,12 +225,12 @@ function Lightbox({
               <div className="font-mono text-[11px] text-zinc-600 mb-6">
                 {item.client}
               </div>
-              <p className="font-mono text-xs text-zinc-500 leading-relaxed mb-6">
+              <p className="font-mono text-xs text-zinc-200 leading-relaxed mb-6">
                 {item.desc}
               </p>
               {item.note && (
                 <div className="border-l-2 border-[#c8f542] pl-4 mb-6">
-                  <p className="font-mono text-[10px] text-zinc-500 italic">
+                  <p className="font-mono text-[10px] text-zinc-200 italic">
                     {item.note}
                   </p>
                 </div>
@@ -272,7 +281,7 @@ function DesignCard({
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
       onClick={onClick}
-      className="group relative cursor-pointer bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-300"
+      className="group relative cursor-pointer bg-zinc-900/50 border border-zinc-800 hover:border-zinf-500 hover:bg-zinc-900 transition-all duration-300"
     >
       {/* Top accent line on hover */}
       <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out z-10" />
@@ -306,7 +315,7 @@ function DesignCard({
               {item.title}
             </div>
           </div>
-          <span className="font-mono text-[10px] text-zinc-700 mt-1">
+          <span className="font-mono text-[10px] text-zinf-500 mt-1">
             {item.id}
           </span>
         </div>
@@ -376,7 +385,7 @@ export default function DesignPage() {
         </div>
 
         <FadeUp delay={0.25}>
-          <p className="font-mono text-xs text-zinc-500 max-w-md leading-relaxed">
+          <p className="font-mono text-xs text-zinc-200 max-w-md leading-relaxed">
             Brand identity, UI design, apparel, and art direction. Every mark built
             with intent — no filler, no templates.
           </p>
@@ -393,13 +402,13 @@ export default function DesignPage() {
               className={`font-mono text-[11px] tracking-[0.15em] uppercase px-5 py-3 transition-all duration-300 border ${
                 active === cat
                   ? "text-[#c8f542] border-[#c8f542] bg-[#c8f542]/5"
-                  : "text-zinc-600 border-zinc-800 hover:text-zinc-400 hover:border-zinc-700"
+                  : "text-zinc-600 border-zinc-800 hover:text-zinc-400 hover:border-zinf-500"
               }`}
             >
               {cat}
             </button>
           ))}
-          <div className="ml-auto flex items-center font-mono text-[10px] text-zinc-700 tracking-[0.1em] uppercase px-4">
+          <div className="ml-auto flex items-center font-mono text-[10px] text-zinf-500 tracking-[0.1em] uppercase px-4">
             {filtered.length} piece{filtered.length !== 1 ? "s" : ""}
           </div>
         </div>

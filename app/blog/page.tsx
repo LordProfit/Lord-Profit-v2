@@ -111,7 +111,7 @@ function PostContent({ content }: { content: ContentBlock[] }) {
           </motion.pre>
         );
         if (block.type === "quote") return (
-          <motion.blockquote key={i} className="border-l-2 border-[#00f0ff] pl-6 text-zinc-300 italic text-base my-6" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.02 }}>
+          <motion.blockquote key={i} className="border-l-2 border-[#00f0ff] pl-6 text-zinc-200 italic text-base my-6" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.02 }}>
             {block.text}
           </motion.blockquote>
         );
@@ -158,7 +158,7 @@ export default function HellCodex() {
   const allTransmitted = [STATIC_POST, ...notionPosts];
 
   return (
-    <div className="min-h-screen bg-[#080808] text-zinc-300 font-mono">
+    <div className="min-h-screen bg-[#080808] text-zinc-200 font-mono">
       <div className="fixed inset-0 pointer-events-none z-50" style={{ background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)" }} />
 
       <div className="border-b border-zinc-800 px-6 py-4 flex items-center justify-between">
@@ -187,8 +187,8 @@ export default function HellCodex() {
             <motion.div key="listing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               <div className="text-xs text-zinc-600 mb-6">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
-                <span className="text-zinc-500">:~$</span>
-                <span className="text-zinc-300 ml-2">ls -la /archive</span>
+                <span className="text-zinc-200">:~$</span>
+                <span className="text-zinc-200 ml-2">ls -la /archive</span>
               </div>
 
               <div className="mb-8">
@@ -205,7 +205,7 @@ export default function HellCodex() {
                         <div>
                           <div className="text-[10px] text-[#00f0ff] tracking-widest mb-2">{post.classification}</div>
                           <div className="text-sm text-zinc-200 font-bold mb-1 group-hover:text-white transition-colors">{post.filename}</div>
-                          <div className="text-xs text-zinc-500">{post.title}</div>
+                          <div className="text-xs text-zinc-200">{post.title}</div>
                         </div>
                         <div className="text-right flex-shrink-0">
                           <div className="text-[10px] text-zinc-600 mb-1">{post.date ?? "UNDATED"}</div>
@@ -215,7 +215,7 @@ export default function HellCodex() {
                     </motion.button>
                   ))}
                   {loading && (
-                    <div className="text-xs text-zinc-700 pt-2">fetching transmissions...<TerminalCursor /></div>
+                    <div className="text-xs text-zinf-500 pt-2">fetching transmissions...<TerminalCursor /></div>
                   )}
                 </div>
               </div>
@@ -228,23 +228,23 @@ export default function HellCodex() {
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <div className="text-[10px] text-zinc-600 tracking-widest mb-2">{item.classification}</div>
-                          <div className="text-sm text-zinc-500">{item.filename}</div>
+                          <div className="text-sm text-zinc-200">{item.filename}</div>
                         </div>
-                        <div className="text-[10px] text-zinc-700">{item.date}</div>
+                        <div className="text-[10px] text-zinf-500">{item.date}</div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-12 text-xs text-zinc-700">
+              <div className="mt-12 text-xs text-zinf-500">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
                 <span className="text-zinc-600">:~$</span>
                 <TerminalCursor />
               </div>
             </motion.div>
           ) : booting ? (
-            <motion.div key="booting" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-xs text-zinc-500 space-y-1">
+            <motion.div key="booting" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-xs text-zinc-200 space-y-1">
               <div>opening {activePost.filename}...</div>
               <div>decrypting...<TerminalCursor /></div>
             </motion.div>
@@ -274,13 +274,13 @@ export default function HellCodex() {
 
               <div className="mt-12 border border-[#00f0ff]/20 bg-[#00f0ff]/5 p-6">
                 <div className="text-[10px] text-[#00f0ff] tracking-widest mb-2">// WANT THE FIRST 4 CHAPTERS?</div>
-                <p className="text-xs text-zinc-500 mb-4 leading-relaxed">Reply to castascendancy@gmail.com. No strings. Just infrastructure failure and existential dread.</p>
+                <p className="text-xs text-zinc-200 mb-4 leading-relaxed">Reply to castascendancy@gmail.com. No strings. Just infrastructure failure and existential dread.</p>
                 <a href="mailto:castascendancy@gmail.com" className="text-xs text-[#00f0ff] hover:text-white transition-colors tracking-widest">
                   SEND REQUEST →
                 </a>
               </div>
 
-              <div className="mt-10 text-xs text-zinc-700">
+              <div className="mt-10 text-xs text-zinf-500">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
                 <span className="text-zinc-600">:~$</span>
                 <TerminalCursor />

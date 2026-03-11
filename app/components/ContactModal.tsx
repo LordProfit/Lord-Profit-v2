@@ -61,7 +61,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {/* Close */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 font-mono text-xs text-zinc-600 hover:text-zinc-300 transition-colors tracking-widest uppercase"
+                className="absolute top-6 right-6 font-mono text-xs text-zinc-600 hover:text-zinc-200 transition-colors tracking-widest uppercase"
               >
                 Close
               </button>
@@ -100,7 +100,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       type="text"
                       required
                       placeholder="Your name"
-                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-700 focus:outline-none focus:border-zinc-600 transition-colors font-mono"
+                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinf-500 focus:outline-none focus:border-zinc-600 transition-colors font-mono"
                     />
                   </div>
 
@@ -113,7 +113,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       type="email"
                       required
                       placeholder="your@email.com"
-                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-700 focus:outline-none focus:border-zinc-600 transition-colors font-mono"
+                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinf-500 focus:outline-none focus:border-zinc-600 transition-colors font-mono"
                     />
                   </div>
 
@@ -126,7 +126,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       required
                       rows={5}
                       placeholder="Tell me about your project..."
-                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-700 focus:outline-none focus:border-zinc-600 transition-colors font-mono resize-none"
+                      className="bg-transparent border border-zinc-800 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinf-500 focus:outline-none focus:border-zinc-600 transition-colors font-mono resize-none"
                     />
                   </div>
 
