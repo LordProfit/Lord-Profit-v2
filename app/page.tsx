@@ -9,7 +9,6 @@ const navigation = [
   { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
-  { name: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
 ];
 
 const projects = [
@@ -23,6 +22,14 @@ const projects = [
   },
   {
     number: "02",
+    name: "Synapse",
+    desc: "Notion-alternative note-taking app with AI assistant, semantic search, drag-and-drop organization, and freemium Stripe integration. Your second brain. Minimal. Fast. Yours.",
+    tags: ["Next.js", "AI", "Postgres"],
+    href: "https://synapse-kappa-teal.vercel.app",
+    live: true,
+  },
+  {
+    number: "03",
     name: "Corex",
     desc: "Collaborative canvas built for engineering teams. Markdown editor, real-time canvas, and diagram-as-code. Optimized Eraser clone.",
     tags: ["Next.js", "Canvas", "Real-time"],
@@ -30,20 +37,12 @@ const projects = [
     live: true,
   },
   {
-    number: "03",
+    number: "04",
     name: "Gwen UI",
     desc: "Open source ChatGPT UI clone. Bring your own OpenAI API key and use this clean, fast interface. 100% unaffiliated with OpenAI.",
     tags: ["Open Source", "OpenAI", "React"],
     href: "https://custom-chatbot-wine.vercel.app",
     live: true,
-  },
-  {
-    number: "04",
-    name: "OpenClaw",
-    desc: "Personal AI thinking partner for deep brainstorming, worldbuilding, and creative direction. Persistent context across sessions.",
-    tags: ["Coming Soon"],
-    href: "#",
-    live: false,
   },
 ];
 
@@ -362,7 +361,11 @@ export default function Home() {
 
         <FadeUp delay={0.2} className="flex flex-wrap gap-px">
           {[
-            { label: "Portfolio", href: "https://cultural-impact-494790.framer.app" },
+            {
+              label: "Design Portfolio",
+              href: "https://cultural-impact-494790.framer.app",
+              note: "Graphic & Brand Work",
+            },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
             <a
@@ -370,9 +373,16 @@ export default function Home() {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 px-8 py-5 border border-zinc-800 font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
+              className="flex flex-col justify-center px-8 py-5 border border-zinc-800 font-mono transition-all duration-300 hover:text-[#c8f542] hover:border-[#c8f542] hover:bg-[#c8f542]/5"
             >
-              <span>↗</span> {link.label}
+              <div className="flex items-center gap-3 text-xs text-zinc-500 tracking-[0.1em] uppercase">
+                <span>↗</span> {link.label}
+              </div>
+              {link.note && (
+                <div className="text-[10px] text-zinc-700 mt-1 tracking-wide">
+                  {link.note}
+                </div>
+              )}
             </a>
           ))}
           <button
