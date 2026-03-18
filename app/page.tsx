@@ -224,7 +224,7 @@ export default function Home() {
     <main 
   className="text-zinc-100 min-h-screen"
   style={{
-    background: 'radial-gradient(ellipse at center, rgba(113,113,122,0.35) 0%, transparent 70%), #000000'
+    background: 'radial-gradient(ellipse at center, rgba(113,113,122,0.35) 0%, transparent 55%), #000000'
   }}
 >
 
