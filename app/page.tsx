@@ -221,7 +221,12 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <main className="text-zinc-100 min-h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black md:bg-fixed">
+    <main 
+  className="text-zinc-100 min-h-screen"
+  style={{
+    background: 'radial-gradient(ellipse at center, rgba(113,113,122,0.15) 0%, transparent 70%), #000000'
+  }}
+>
 
       {/* ── HERO ── */}
       <section className="flex flex-col items-center justify-center w-screen h-screen relative">
