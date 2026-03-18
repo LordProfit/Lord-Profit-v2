@@ -135,7 +135,7 @@ function ProjectCard({
     >
       <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out" />
 
-      <div className="font-mono text-xs text-zinc-600 mb-10">{project.number}</div>
+      <div className="font-mono text-xs text-zinc-500 mb-10">{project.number}</div>
 
       <div className="text-2xl font-bold text-zinc-100 tracking-tight mb-4">
         {project.name}
@@ -150,13 +150,13 @@ function ProjectCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[10px] text-zinc-600 border border-zinc-800 px-2 py-1 uppercase tracking-wide"
+              className="font-mono text-[10px] text-zinc-500 border border-zinc-800 px-2 py-1 uppercase tracking-wide"
             >
               {tag}
             </span>
           ))}
         </div>
-        <span className="text-zinc-600 group-hover:text-[#c8f542] transition-colors duration-300 text-lg">
+        <span className="text-zinc-400 group-hover:text-[#c8f542] transition-colors duration-300 text-lg">
           →
         </span>
       </div>
@@ -193,7 +193,7 @@ function NameSection() {
           </div>
           <div className="overflow-hidden">
             <motion.h2
-              className="text-6xl md:text-9xl font-bold tracking-tight leading-none text-zinc-600"
+              className="text-6xl md:text-9xl font-bold tracking-tight leading-none text-zinc-500"
               initial={{ y: "110%" }}
               animate={inView ? { y: 0 } : { y: "110%" }}
               transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
@@ -202,7 +202,7 @@ function NameSection() {
             </motion.h2>
           </div>
           <motion.p
-            className="font-mono text-xs text-zinc-200 tracking-[0.15em] uppercase mt-8"
+            className="font-mono text-xs text-zinc-200 tracking-[0.35em] uppercase mt-8"
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -224,7 +224,7 @@ export default function Home() {
     <main 
   className="text-zinc-100 min-h-screen"
   style={{
-    background: 'radial-gradient(ellipse at center, rgba(113,113,122,0.15) 0%, transparent 70%), #000000'
+    background: 'radial-gradient(ellipse at center, rgba(113,113,122,0.35) 0%, transparent 70%), #000000'
   }}
 >
 
@@ -285,9 +285,9 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 3, duration: 1 }}
         >
-          <span className="font-mono text-[10px] text-zinc-600 tracking-[0.2em] uppercase">Scroll</span>
+          <span className="font-mono text-[10px] text-zinc-500 tracking-[0.2em] uppercase">Scroll</span>
           <motion.div
-            className="w-px h-10 bg-gradient-to-b from-zinc-600 to-transparent"
+            className="w-px h-10 bg-gradient-to-b from-zinc-500 to-transparent"
             animate={{ scaleY: [1, 0.3, 1] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -309,7 +309,7 @@ export default function Home() {
               key={i}
               className="px-12 py-10 border-b md:border-b-0 md:border-r border-zinc-800 last:border-0"
             >
-              <div className="font-mono text-[10px] text-zinc-600 tracking-[0.2em] uppercase mb-3">
+              <div className="font-mono text-[10px] text-zinc-500 tracking-[0.2em] uppercase mb-3">
                 {item.label}
               </div>
               <div className="text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
@@ -352,7 +352,7 @@ export default function Home() {
             </h2>
           </PushReveal>
           <PushReveal delay={0.12}>
-            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none text-zinc-600">
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none text-zinc-500">
               Identity.
             </h2>
           </PushReveal>
@@ -369,7 +369,7 @@ export default function Home() {
             <FadeUp key={item.label} delay={i * 0.1}>
               <a
                 href="/design"
-                className="group relative block aspect-video bg-zinc-900/50 border border-zinc-800 overflow-hidden hover:border-zinf-500 transition-all duration-300"
+                className="group relative block aspect-video bg-zinc-800/50 border border-zinc-800 overflow-hidden hover:border-zinf-500 transition-all duration-300"
               >
                 <span className="absolute top-0 left-0 w-0 h-px bg-[#c8f542] group-hover:w-full transition-all duration-500 ease-out z-10" />
                 <Image
@@ -380,7 +380,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="font-mono text-[9px] text-[#c8f542] tracking-[0.15em] uppercase mb-0.5">
+                  <div className="font-mono text-[9px] text-[#c8f542] tracking-[0.35em] uppercase mb-0.5">
                     {item.cat}
                   </div>
                   <div className="font-mono text-xs text-zinc-200">{item.label}</div>
@@ -416,7 +416,7 @@ export default function Home() {
             </h2>
           </PushReveal>
           <PushReveal delay={0.12}>
-            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none text-zinc-600">
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-none text-zinc-500">
               in mind?
             </h2>
           </PushReveal>
@@ -461,10 +461,10 @@ export default function Home() {
 
       {/* ── FOOTER ── */}
       <footer className="px-8 md:px-12 py-8 border-t border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <span className="font-mono text-[11px] text-zinc-600">
+        <span className="font-mono text-[11px] text-zinc-500">
           © 2026 Art Castillo. All rights reserved.
         </span>
-        <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-600">
+        <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-500">
           <span className="w-2.5 h-2.5 rounded-full bg-[#c8f542] animate-pulse" />
           Available for freelance
         </div>
