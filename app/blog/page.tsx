@@ -121,6 +121,82 @@ function PostContent({ content }: { content: ContentBlock[] }) {
   );
 }
 
+function BootSequence() {
+  const lines = [
+    { text: "HELL_CODEX v1.0.0 — initialized", color: "text-[#00f0ff]/80" },
+    { text: "CLASSIFICATION: RESTRICTED // ARCHANGEL ARCHIVE", color: "text-zinc-300" },
+    { text: "AUTHOR: ARTURIOUS_CASTILLO // THE FALL OF AN ANGEL", color: "text-zinc-300" },
+  ];
+
+  const command = "ls -la /archive";
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [doneLines, setDoneLines] = useState<string[]>([]);
+  const [showTitle, setShowTitle] = useState(false);
+  const [cmdChar, setCmdChar] = useState(0);
+  const [showCommand, setShowCommand] = useState(false);
+
+  useEffect(() => {
+    if (lineIndex >= lines.length) {
+      setTimeout(() => setShowTitle(true), 200);
+      setTimeout(() => setShowCommand(true), 500);
+      return;
+    }
+    const current = lines[lineIndex].text;
+    if (charIndex < current.length) {
+      const t = setTimeout(() => setCharIndex(c => c + 1), 16);
+      return () => clearTimeout(t);
+    } else {
+      const t = setTimeout(() => {
+        setDoneLines(d => [...d, lineIndex.toString()]);
+        setLineIndex(i => i + 1);
+        setCharIndex(0);
+      }, 80);
+      return () => clearTimeout(t);
+    }
+  }, [lineIndex, charIndex]);
+
+  useEffect(() => {
+    if (!showCommand) return;
+    if (cmdChar <= command.length) {
+      const t = setTimeout(() => setCmdChar(c => c + 1), 22);
+      return () => clearTimeout(t);
+    }
+  }, [showCommand, cmdChar]);
+
+  return (
+    <div className="mb-12 space-y-1">
+      {lines.map((line, i) => {
+        if (i > lineIndex) return null;
+        const text = i === lineIndex ? line.text.slice(0, charIndex) : line.text;
+        const typing = i === lineIndex && charIndex < line.text.length;
+        return (
+          <div key={i} className={`${line.color} text-xs`}>
+            {text}{typing && <TerminalCursor />}
+          </div>
+        );
+      })}
+
+      {showTitle && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="pt-5">
+          <div className="text-2xl md:text-4xl font-bold text-zinc-100 tracking-tight mb-1">HELL CODEX</div>
+          <div className="text-xs text-zinc-400 tracking-widest mb-4">MYTHOLOGY AS INFRASTRUCTURE FAILURE</div>
+        </motion.div>
+      )}
+
+      {showCommand && (
+        <div className="text-xs pt-1">
+          <span className="text-[#00f0ff]">root@hell_codex</span>
+          <span className="text-zinc-200">:~$ </span>
+          <span className="text-zinc-200">{command.slice(0, cmdChar)}</span>
+          <TerminalCursor />
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 export default function HellCodex() {
   const [notionPosts, setNotionPosts] = useState<Post[]>([]);
   const [activePost, setActivePost] = useState<Post | null>(null);
@@ -174,22 +250,12 @@ export default function HellCodex() {
       </div>
 
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <motion.div className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          <div className="text-[#00f0ff]/80 text-xs mb-1">HELL_CODEX v1.0.0 — initialized</div>
-          <div className="text-zinc-300 text-xs mb-1">CLASSIFICATION: RESTRICTED // ARCHANGEL ARCHIVE</div>
-          <div className="text-zinc-300 text-xs mb-6">AUTHOR: ARTURIOUS_CASTILLO // THE FALL OF AN ANGEL</div>
-          <div className="text-2xl md:text-4xl font-bold text-zinc-100 tracking-tight mb-1">HELL CODEX</div>
-          <div className="text-xs text-zinc-400 tracking-widest">MYTHOLOGY AS INFRASTRUCTURE FAILURE<TerminalCursor /></div>
-        </motion.div>
+        <BootSequence />
 
         <AnimatePresence mode="wait">
           {!activePost ? (
             <motion.div key="listing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <div className="text-xs text-zinc-400 mb-6">
-                <span className="text-[#00f0ff]">root@hell_codex</span>
-                <span className="text-zinc-200">:~$</span>
-                <span className="text-zinc-200 ml-2">ls -la /archive</span>
-              </div>
+             
 
               <div className="mb-8">
                 <div className="text-[10px] text-zinc-400 tracking-widest uppercase mb-3">// TRANSMITTED</div>
