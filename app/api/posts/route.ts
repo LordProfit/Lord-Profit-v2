@@ -5,7 +5,7 @@ const notion = new Client({
   auth: process.env.NOTION_SECRET,
 });
 
-const DATABASE_ID = "30c08ef5e23880e0974ed0ec2990bfbb";
+const DATABASE_ID = "0bf6d42a5fb74253825c48ae4c616103";
 
 export async function GET() {
   try {

@@ -93,7 +93,7 @@ function PostContent({ content }: { content: ContentBlock[] }) {
     <div className="space-y-5">
       {content.map((block, i) => {
         if (block.type === "paragraph") return (
-          <motion.p key={i} className="text-zinc-400 leading-relaxed text-sm" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.02, duration: 0.4 }}>
+          <motion.p key={i} className="text-zinc-300 leading-relaxed text-sm" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.02, duration: 0.4 }}>
             {block.text}
           </motion.p>
         );
@@ -161,38 +161,38 @@ export default function HellCodex() {
     <div className="min-h-screen bg-[#080808] text-zinc-200 font-mono">
       <div className="fixed inset-0 pointer-events-none z-50" style={{ background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)" }} />
 
-      <div className="border-b border-zinc-800 px-6 py-4 flex items-center justify-between">
+      <div className="border-b border-zinc-700 bg-zinc-900 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500/60" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-            <div className="w-3 h-3 rounded-full bg-green-500/60" />
+            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+            <div className="w-3 h-3 rounded-full bg-green-500/80" />
           </div>
-          <span className="text-xs text-zinc-600 ml-2">hell_codex — bash</span>
+          <span className="text-xs text-zinc-400 ml-2">hell_codex — bash</span>
         </div>
-        <Link href="/" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors tracking-widest uppercase">← back</Link>
+        <Link href="/" className="text-xs text-zinc-400 hover:text-zinc-400 transition-colors tracking-widest uppercase">← back</Link>
       </div>
 
       <div className="max-w-3xl mx-auto px-6 py-12">
         <motion.div className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          <div className="text-[#00f0ff] text-xs mb-1">HELL_CODEX v1.0.0 — initialized</div>
-          <div className="text-zinc-600 text-xs mb-1">CLASSIFICATION: RESTRICTED // ARCHANGEL ARCHIVE</div>
-          <div className="text-zinc-600 text-xs mb-6">AUTHOR: ARTURIOUS_CASTILLO // THE FALL OF AN ANGEL</div>
+          <div className="text-[#00f0ff]/80 text-xs mb-1">HELL_CODEX v1.0.0 — initialized</div>
+          <div className="text-zinc-300 text-xs mb-1">CLASSIFICATION: RESTRICTED // ARCHANGEL ARCHIVE</div>
+          <div className="text-zinc-300 text-xs mb-6">AUTHOR: ARTURIOUS_CASTILLO // THE FALL OF AN ANGEL</div>
           <div className="text-2xl md:text-4xl font-bold text-zinc-100 tracking-tight mb-1">HELL CODEX</div>
-          <div className="text-xs text-zinc-600 tracking-widest">MYTHOLOGY AS INFRASTRUCTURE FAILURE<TerminalCursor /></div>
+          <div className="text-xs text-zinc-400 tracking-widest">MYTHOLOGY AS INFRASTRUCTURE FAILURE<TerminalCursor /></div>
         </motion.div>
 
         <AnimatePresence mode="wait">
           {!activePost ? (
             <motion.div key="listing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <div className="text-xs text-zinc-600 mb-6">
+              <div className="text-xs text-zinc-400 mb-6">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
                 <span className="text-zinc-200">:~$</span>
                 <span className="text-zinc-200 ml-2">ls -la /archive</span>
               </div>
 
               <div className="mb-8">
-                <div className="text-[10px] text-zinc-600 tracking-widest uppercase mb-3">// TRANSMITTED</div>
+                <div className="text-[10px] text-zinc-400 tracking-widest uppercase mb-3">// TRANSMITTED</div>
                 <div className="space-y-2">
                   {allTransmitted.map((post) => (
                     <motion.button
@@ -207,8 +207,8 @@ export default function HellCodex() {
                           <div className="text-sm text-zinc-200 font-bold mb-1 group-hover:text-white transition-colors">{post.filename}</div>
                           <div className="text-xs text-zinc-200">{post.title}</div>
                         </div>
-                        <div className="text-right flex-shrink-0">
-                          <div className="text-[10px] text-zinc-600 mb-1">{post.date ?? "UNDATED"}</div>
+                        <div className="text-right shrink-0">
+                          <div className="text-[10px] text-zinc-400 mb-1">{post.date ?? "UNDATED"}</div>
                           <div className="text-[10px] text-[#00f0ff]/60">READ →</div>
                         </div>
                       </div>
@@ -221,13 +221,13 @@ export default function HellCodex() {
               </div>
 
               <div>
-                <div className="text-[10px] text-zinc-600 tracking-widest uppercase mb-3">// PENDING TRANSMISSION</div>
+                <div className="text-[10px] text-zinc-400 tracking-widest uppercase mb-3">// PENDING TRANSMISSION</div>
                 <div className="space-y-2">
                   {UPCOMING.map((item) => (
                     <div key={item.id} className="border border-zinc-900 p-5 opacity-40">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <div className="text-[10px] text-zinc-600 tracking-widest mb-2">{item.classification}</div>
+                          <div className="text-[10px] text-zinc-400 tracking-widest mb-2">{item.classification}</div>
                           <div className="text-sm text-zinc-200">{item.filename}</div>
                         </div>
                         <div className="text-[10px] text-zinf-500">{item.date}</div>
@@ -239,7 +239,7 @@ export default function HellCodex() {
 
               <div className="mt-12 text-xs text-zinf-500">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
-                <span className="text-zinc-600">:~$</span>
+                <span className="text-zinc-400">:~$</span>
                 <TerminalCursor />
               </div>
             </motion.div>
@@ -250,14 +250,14 @@ export default function HellCodex() {
             </motion.div>
           ) : (
             <motion.div key="post" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <button onClick={() => { setActivePost(null); setNotionContent([]); }} className="text-xs text-zinc-600 hover:text-[#00f0ff] transition-colors mb-8 tracking-widest">
+              <button onClick={() => { setActivePost(null); setNotionContent([]); }} className="text-xs text-zinc-400 hover:text-[#00f0ff] transition-colors mb-8 tracking-widest">
                 ← cd ..
               </button>
 
               <div className="mb-10 border-b border-zinc-800 pb-8">
                 <div className="text-[10px] text-[#00f0ff] tracking-widest mb-3">{activePost.classification}</div>
                 <h1 className="text-xl md:text-2xl font-bold text-zinc-100 tracking-tight leading-snug mb-4">{activePost.title}</h1>
-                <div className="flex items-center gap-4 text-[10px] text-zinc-600 flex-wrap">
+                <div className="flex items-center gap-4 text-[10px] text-zinc-400 flex-wrap">
                   <span>ARTURIOUS_CASTILLO</span>
                   <span>//</span>
                   <span>{activePost.date ?? "UNDATED"}</span>
@@ -267,7 +267,7 @@ export default function HellCodex() {
               </div>
 
               {postLoading ? (
-                <div className="text-xs text-zinc-600">loading transmission...<TerminalCursor /></div>
+                <div className="text-xs text-zinc-400">loading transmission...<TerminalCursor /></div>
               ) : (
                 <PostContent content={activePost.isStatic ? (activePost.content ?? []) : notionContent} />
               )}
@@ -282,7 +282,7 @@ export default function HellCodex() {
 
               <div className="mt-10 text-xs text-zinf-500">
                 <span className="text-[#00f0ff]">root@hell_codex</span>
-                <span className="text-zinc-600">:~$</span>
+                <span className="text-zinc-400">:~$</span>
                 <TerminalCursor />
               </div>
             </motion.div>
