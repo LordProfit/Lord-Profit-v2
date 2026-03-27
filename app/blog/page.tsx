@@ -270,7 +270,7 @@ export default function HellCodex() {
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <div className="text-[10px] text-[#00f0ff] tracking-widest mb-2">{post.classification}</div>
-                          <div className="text-sm text-zinc-200 font-bold mb-1 group-hover:text-white transition-colors">{post.filename}</div>
+                          <div className="text-sm text-zinc-200 font-bold mb-1 group-hover:text-white transition-colors break-all">{post.filename}</div>
                           <div className="text-xs text-zinc-200">{post.title}</div>
                         </div>
                         <div className="text-right shrink-0">
