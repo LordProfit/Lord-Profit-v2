@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +13,7 @@ type Post = {
   date: string | null;
   classification: string;
   title: string;
+  coverImage?: string | null;
   isStatic?: boolean;
   content?: ContentBlock[];
 };
@@ -272,6 +274,16 @@ export default function HellCodex() {
                           <div className="text-[10px] text-[#00f0ff] tracking-widest mb-2">{post.classification}</div>
                           <div className="text-sm text-zinc-200 font-bold mb-1 group-hover:text-white transition-colors break-all">{post.filename}</div>
                           <div className="text-xs text-zinc-200">{post.title}</div>
+                          {post.coverImage && (
+                            <div className="relative mt-3 w-full h-32">
+                              <Image
+                                src={post.coverImage}
+                                alt={post.title}
+                                fill
+                                className="object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                              />
+                            </div>
+                          )}
                         </div>
                         <div className="text-right shrink-0">
                           <div className="text-[10px] text-zinc-400 mb-1">{post.date ?? "UNDATED"}</div>

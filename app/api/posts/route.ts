@@ -35,6 +35,7 @@ export async function GET() {
         classification: props.Classification?.rich_text?.[0]?.plain_text ?? "",
         slug,
         filename: slug.toUpperCase().replace(/-/g, "_") + ".log",
+        coverImage: props.CoverImage?.url ?? null,
       };
     });
 
